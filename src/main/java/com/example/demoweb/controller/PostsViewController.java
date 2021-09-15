@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
+
 @Controller
 public class PostsViewController {
     @Autowired
@@ -19,7 +21,7 @@ public class PostsViewController {
     public String list(Model model) {
         model.addAttribute("appName", "Моё супер приложение");
 
-        Post[] posts = _postsService.listAllPosts();
+        ArrayList<Post> posts = _postsService.listAllPosts();
         model.addAttribute("posts", posts);
         return "list";
     }

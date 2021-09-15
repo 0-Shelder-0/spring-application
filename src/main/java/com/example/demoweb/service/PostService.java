@@ -15,16 +15,17 @@ public class PostService {
 
     public PostService() {
         this._posts = new ArrayList<>();
-        _posts.add(new Post("Post #1", new Date(), 55));
-        _posts.add(new Post("Post #2", new Date(), 68));
-        _posts.add(new Post("Post #3", new Date(), 130));
+        _posts.add(new Post(0L, "Post #1", new Date()));
+        _posts.add(new Post(1L, "Post #2", new Date()));
+        _posts.add(new Post(2L, "Post #3", new Date()));
     }
 
-    public Post[] listAllPosts() {
-        return _posts.toArray(new Post[0]);
+    public ArrayList<Post> listAllPosts() {
+        return _posts;
     }
 
     public void create(String text) {
-        _posts.add(new Post(text, new Date(), 0));
+        long size = _posts.size();
+        _posts.add(new Post(size + 1, text, new Date()));
     }
 }
