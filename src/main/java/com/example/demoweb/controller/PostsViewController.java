@@ -21,7 +21,7 @@ public class PostsViewController {
     public String list(Model model) {
         model.addAttribute("appName", "Моё супер приложение");
 
-        ArrayList<Post> posts = _postsService.listAllPosts();
+        Iterable<Post> posts = _postsService.listAllPosts();
         model.addAttribute("posts", posts);
         return "list";
     }
